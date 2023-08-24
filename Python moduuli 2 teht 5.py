@@ -7,7 +7,7 @@ naulatGramma = float(32 * 13.3 * keskiLuku)
 leiviskätGramma = float((32 * 13.3 * 20) * suurinLuku)
 
 massa = float(luoditGramma+naulatGramma+leiviskätGramma)
-massaGramma = massa % 1000
-massaKilogramma = int(massa / 1000)
+massaGrammat = massa % 1000
+massaKilogrammat = int(massa / 1000)
 
-print(f"Massa nykymittojen mukaan: \n {massaKilogramma} kilogrammaa ja {massaGramma:.2f} grammaa.")
+print(f"Massa nykymittojen mukaan: \n {massaKilogrammat} kilogrammaa ja {massaGrammat:.2f} grammaa.")
