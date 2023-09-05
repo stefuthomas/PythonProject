@@ -2,7 +2,7 @@
 #Ohjelma palauttaa listassa olevien lukujen summan.
 #Kirjoita testausta varten pääohjelma, jossa luot listan, kutsut funktiota ja tulostat sen palauttaman summan.
 
-lista = [0, 5, 10, 15, 20, 25, 30]
+lista = [0, 5, 10, 15, 20, 25, 30, 40]
 
 def laskuri(numerot):
     summa = 0
