@@ -2,6 +2,6 @@ vuodenajat = ('talvi', 'talvi', 'kevät', 'kevät', 'kevät', 'kesä', 'kesä', 
 numero = int(input('Anna kuukauden numero: '))
 if 1 <= numero <= 12:
     tulos = vuodenajat[numero-1]
-    print(f'kuukauden {numero}. vuodenaika on {tulos}')
+    print(f'{numero}. kuukauden vuodenaika on {tulos}')
 else:
     print('Kuukauden numero ei ole välillä 1-12.')
