@@ -13,3 +13,5 @@ elif hyttiluokka=="b":
     print(b)
 elif hyttiluokka=="c":
     print(c)
+else:
+    print('Virheellinen hyttiluokka.')
