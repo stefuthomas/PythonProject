@@ -2,7 +2,7 @@ lentoasemat = {'EFKH':'Helsinki-Vantaa', 'ESSA':'Arlandan asema', 'EGLL':'Heathr
 
 def airport(haku):
     if haku in lentoasemat:
-        print(f'ICAO-Koodilla {haku} löytyy lentoasema nimeltä {lentoasemat[koodi]}')
+        print(f'ICAO-Koodilla {haku} löytyy lentoasema nimeltä {lentoasemat[haku]}')
     else:
         print(f'Haulla {haku} ei löytynyt lentoasemaa')
     return
