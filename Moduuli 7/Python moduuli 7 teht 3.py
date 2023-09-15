@@ -1,4 +1,4 @@
-lentoasemat = {'EFKH':'Helsinki-Vantaa', 'ESSA':'Arlandan asema', 'EGLL':'Heathrow Airport'}
+lentoasemat = {'EFHK':'Helsinki-Vantaa', 'ESSA':'Arlandan asema', 'EGLL':'Heathrow Airport'}
 
 def airport(haku):
     if haku in lentoasemat:
