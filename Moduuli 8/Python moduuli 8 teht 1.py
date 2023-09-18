@@ -1,11 +1,8 @@
 import mysql.connector
 
 def hakeminen(koodi):
-    sql = "SELECT name FROM Airport"
-    sql += " WHERE ident ='" + koodi + "'"
-    print(sql)
     kursori = yhteys.cursor()
-    kursori.execute(sql)
+    kursori.execute(f'SELECT name FROM Airport Where ident = "{koodi}"')
     tulos = kursori.fetchall()
     if kursori.rowcount > 0:
         for rivi in tulos:
