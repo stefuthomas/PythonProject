@@ -5,12 +5,10 @@ class Auto:
         self.hetkellinen_nopeus = 0
         self.kuljettu_matka = 0
 
-    def tiedot(self):
-        print('Auton tiedot:')
-        print(f'Auton rekisteritunnus: {self.rekisteritunnus}')
-        print(f'Auton huippunopeus: {self.huippunopeus}km/h')
-        print(f'Auton hetkellinen nopeus: {self.hetkellinen_nopeus}km/h')
-        print(f'Auton kuljettu matka: {self.kuljettu_matka}km')
+auto1 = Auto('ABC-123', 142)
 
-auto1 = Auto('ABC-123',142)
-auto1.tiedot()
+print('Auton tiedot:')
+print(f'Auton rekisteritunnus: {auto1.rekisteritunnus}')
+print(f'Auton huippunopeus: {auto1.huippunopeus}km/h')
+print(f'Auton hetkellinen nopeus: {auto1.hetkellinen_nopeus}km/h')
+print(f'Auton kuljettu matka: {auto1.kuljettu_matka}km')
