@@ -1,7 +1,7 @@
 class Hissi:
     def __init__(self, alin_kerros, ylin_kerros):
-        self.alinkerros = alin_kerros
-        self.ylinkerros = ylin_kerros
+        self.alin_kerros = alin_kerros
+        self.ylin_kerros = ylin_kerros
         self.nykyinen_kerros = alin_kerros
 
     def siirry_kerrokseen(self, kohde):
@@ -14,11 +14,11 @@ class Hissi:
                 while self.nykyinen_kerros != kohde:
                     h.kerros_alas()
 
-        elif kohde == self.ylinkerros:
-            self.nykyinen_kerros = self.ylinkerros
+        elif kohde == self.ylin_kerros:
+            self.nykyinen_kerros = self.ylin_kerros
 
-        elif kohde == self.alinkerros:
-            self.nykyinen_kerros = self.alinkerros
+        elif kohde == self.alin_kerros:
+            self.nykyinen_kerros = self.alin_kerros
 
         print(f"Olet nyt kerroksessa: {self.nykyinen_kerros}")
 
