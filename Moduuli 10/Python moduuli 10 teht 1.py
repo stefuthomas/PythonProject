@@ -7,12 +7,12 @@ class Hissi:
     def siirry_kerrokseen(self, kohde):
         if self.nykyinen_kerros < kohde:
             while self.nykyinen_kerros != kohde:
-                h.kerros_ylös()
+                self.kerros_ylös()
 
         elif self.nykyinen_kerros > kohde:
             if self.nykyinen_kerros > kohde:
                 while self.nykyinen_kerros != kohde:
-                    h.kerros_alas()
+                    self.kerros_alas()
 
         elif kohde == self.ylin_kerros:
             self.nykyinen_kerros = self.ylin_kerros
