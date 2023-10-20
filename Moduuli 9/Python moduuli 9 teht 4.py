@@ -1,4 +1,6 @@
 import random
+
+
 class Auto:
     def __init__(self, rekisteritunnus, huippunopeus):
         self.rekisteritunnus = rekisteritunnus
@@ -8,53 +10,42 @@ class Auto:
 
     def kiihdytys(self, muutos):
         uusi_nopeus = self.hetkellinen_nopeus + muutos
-        if uusi_nopeus < 0:
-            self.hetkellinen_nopeus = 0
-        elif uusi_nopeus > self.huippunopeus:
+        if uusi_nopeus > self.huippunopeus:
             self.hetkellinen_nopeus = self.huippunopeus
+        elif uusi_nopeus < 0:
+            self.hetkellinen_nopeus = 0
         else:
             self.hetkellinen_nopeus = uusi_nopeus
 
-    def kulje(self,):
-        kuljettuMatka = 1 * self.hetkellinen_nopeus
-        self.kuljettu_matka = kuljettuMatka + self.kuljettu_matka
 
-def tulokset(autolista):
-    if any(auto.kuljettu_matka >= 10000 for auto in autolista):
-        return False
-    else:
-        return True
+    def kulje(self,tunnit):
+        uusi_kuljettu_matka = self.kuljettu_matka + tunnit * self.hetkellinen_nopeus
+        self.kuljettu_matka = uusi_kuljettu_matka
 
 
-autolista = []
+autot = []
 
+for i in range(1,11):
+    auto = Auto(f"ABC-{i}", random.randint(100, 200))
+    autot.append(auto)
+    print(f"Auton rekisteritunnus: {auto.rekisteritunnus}"
+          f" ja huippunopeus: {auto.huippunopeus} km/h.")
 
-for i in range(1, 11):
-    rekisteritunnus = (f"ABC-{i}")
-    huippunopeus = random.randint(100, 200)
-    auto = Auto(rekisteritunnus, huippunopeus)
-    autolista.append(auto)
-
-print("Autojen tiedot:")
-
-for auto in autolista:
-    print(f"Rekisteritunnus: {auto.rekisteritunnus}. Huippunopeus: {auto.huippunopeus} km/h.")
-
-print("")
+print("\n Kilpailu alkaa!")
 
 gameRunning = True
 
 while gameRunning:
-
-    for auto in autolista:
+    for auto in autot:
         auto.kiihdytys(random.randint(-10, 15))
+        auto.kulje(1)
 
-    for auto in autolista:
-        auto.kulje()
+    for auto in autot:
+        if auto.kuljettu_matka >= 10000:
+            gameRunning = False
+        else:
+            None
 
-    for auto in autolista:
-        gameRunning = tulokset(autolista)
-
-for auto in autolista:
-    print(f"Rekisteritunnus: {auto.rekisteritunnus}. Huippunopeus: {auto.huippunopeus} km/h. "
-          f"Nopeus: {auto.hetkellinen_nopeus} ja kuljettu matka: {auto.kuljettu_matka}.")
+for auto in autot:
+    print(f"Auton {auto.rekisteritunnus} nopeus on {auto.hetkellinen_nopeus} km/h."
+          f"Auton {auto.rekisteritunnus} kuljettu matka on nyt {auto.kuljettu_matka} kilometriä.")
