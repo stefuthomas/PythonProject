@@ -31,7 +31,7 @@ for i in range(1,11):
     print(f"Auton rekisteritunnus: {auto.rekisteritunnus}"
           f" ja huippunopeus: {auto.huippunopeus} km/h.")
 
-print("\n Kilpailu alkaa!")
+print("\nKilpailu alkaa!")
 
 gameRunning = True
 
