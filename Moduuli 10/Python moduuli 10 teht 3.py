@@ -21,7 +21,7 @@ class Hissi:
         elif kohde == self.akerros:
             self.nkerros = self.akerros
 
-        print(f"Olet nyt hissillä {self.numero} kerroksessa: {self.nkerros}")
+        print(f"Olet nyt hissillä {self.numero} kerroksessa {self.nkerros}")
 
 
     def kerros_ylös(self):
