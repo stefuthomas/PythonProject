@@ -5,7 +5,7 @@ class Hissi:
         self.ykerros = ykerros
         self.nkerros = akerros
 
-    def siirry_kerrokseen(self, numero, kohde):
+    def siirry_kerrokseen(self, kohde):
         if self.nkerros < kohde:
             while self.nkerros != kohde:
                 self.kerros_ylös()
@@ -21,7 +21,7 @@ class Hissi:
         elif kohde == self.akerros:
             self.nkerros = self.akerros
 
-        print(f"Olet nyt kerroksessa: {self.nkerros}")
+        print(f"Olet nyt hissillä {self.numero} kerroksessa: {self.nkerros}")
 
 
     def kerros_ylös(self):
@@ -39,19 +39,22 @@ class Talo:
     def hissienLuonti(self):
         hissilista = []
         for i in range(self.hissien_määrä):
-            hissi = Hissi(f"{i+1}", self.alin_kerros, self.ylin_kerros)
+            hissi = Hissi(i+1, self.alin_kerros, self.ylin_kerros)
             hissilista.append(hissi)
         return hissilista
     def aja_hissiä(self, hissin_numero, kohde_kerros):
-        hissi = talo.hissit[hissin_numero]
-        hissi.siirry_kerrokseen(hissi.numero, kohde_kerros)
+        hissi = talo.hissit[hissin_numero-1]
+        hissi.siirry_kerrokseen(kohde_kerros)
 
 talo = Talo(1, 10,2)
-talo.aja_hissiä(2,8)
+valintaHissi = input("Anna valittavan hissin numero: ")
+valintaKerros = input("Anna kerros mihin siirrytään: ")
+
+while valintaHissi and valintaKerros !="":
+    talo.aja_hissiä(int(valintaHissi), int(valintaKerros))
+    valintaHissi = input("Anna valittavan hissin numero: ")
+    valintaKerros = input("Anna kerros mihin siirrytään: ")
 
 
-
-
-
-#for hissi in talo.hissit:
-    #print(f"Hissi {hissi.numero} ja hissin kerrokset {hissi.akerros} ja {hissi.ykerros}")
+for hissi in talo.hissit:
+    print(f"Hissi {hissi.numero} on kerroksessa {hissi.nkerros}")
