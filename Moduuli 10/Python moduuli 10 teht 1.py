@@ -20,7 +20,7 @@ class Hissi:
         elif kohde == self.alin_kerros:
             self.nykyinen_kerros = self.alin_kerros
 
-        print(f"Olet nyt kerroksessa: {self.nykyinen_kerros}")
+        print(f"Olet nyt kerroksessa {self.nykyinen_kerros}")
 
 
     def kerros_ylös(self):
