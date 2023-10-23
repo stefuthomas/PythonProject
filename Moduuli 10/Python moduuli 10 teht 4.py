@@ -19,6 +19,8 @@ class Auto:
         self.kuljettu_matka += self.hetkellinen_nopeus * tunnit
 
 class Kilpailu:
+
+    tunti = 0
     def __init__(self, kilpailun_nimi, kilpailun_pituus):
         self.kilpailun_nimi = kilpailun_nimi
         self.kilpailun_pituus = kilpailun_pituus
@@ -32,20 +34,37 @@ class Kilpailu:
         return autolista
 
     def tunti_kuluu(self):
+        kilpailu.tunti = kilpailu.tunti + 1
         for auto in kilpailu.osallistuvat_autot:
             auto.kiihdytys(random.randint(-10, 15))
-            auto.kulje()
+            auto.kulje(1)
+        if kilpailu.tunti == 10:
+            kilpailu.tunti = 0
+            kilpailu.tulosta_tilanne()
 
     def tulosta_tilanne(self):
+        print("\nKilpailun tilanne:\n")
         for auto in kilpailu.osallistuvat_autot:
-            print(f"Auton {auto.rekisteritunnus} nopeus on {auto.hetkellinen_nopeus} km/h."
-                  f"Auton {auto.rekisteritunnus} kuljettu matka on nyt {auto.kuljettu_matka} kilometriä.")
+            print(f"Auto {auto.rekisteritunnus} nopeus: {auto.hetkellinen_nopeus} km/h"
+                  f" kuljettu matka: {auto.kuljettu_matka} kilometriä.")
+
     def kilpailu_ohi(self):
         for auto in kilpailu.osallistuvat_autot:
             if auto.kuljettu_matka >= kilpailu.kilpailun_pituus:
                 return True
-            if auto.kuljettu_matka < kilpailu.kilpailun_pituus:
-                return False
+        return False
 
 kilpailu = Kilpailu("Suuri romuralli", 8000)
-print(f"{kilpailu.kilpailun_nimi}, {kilpailu.kilpailun_pituus} km.")
+
+gameRunning = kilpailu.kilpailu_ohi()
+
+while gameRunning != True:
+    kilpailu.tunti_kuluu()
+    for auto in kilpailu.osallistuvat_autot:
+        gameRunning = kilpailu.kilpailu_ohi()
+
+kilpailu.tulosta_tilanne()
+
+for auto in kilpailu.osallistuvat_autot:
+    if auto.kuljettu_matka >= kilpailu.kilpailun_pituus:
+        print(f"Voittaja: {auto.rekisteritunnus}")

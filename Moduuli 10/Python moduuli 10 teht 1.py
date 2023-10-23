@@ -20,14 +20,14 @@ class Hissi:
         elif kohde == self.alin_kerros:
             self.nykyinen_kerros = self.alin_kerros
 
-        print(f"Olet nyt kerroksessa {self.nykyinen_kerros}")
-
 
     def kerros_ylös(self):
         self.nykyinen_kerros = self.nykyinen_kerros + 1
+        print(f"Olet nyt kerroksessa {self.nykyinen_kerros}")
 
     def kerros_alas(self):
         self.nykyinen_kerros = self.nykyinen_kerros - 1
+        print(f"Olet nyt kerroksessa {self.nykyinen_kerros}")
 
 h = Hissi(1, 10)
 
