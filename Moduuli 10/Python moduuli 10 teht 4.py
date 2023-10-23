@@ -15,13 +15,12 @@ class Auto:
         else:
             self.hetkellinen_nopeus = uusi_nopeus
 
-    def kulje(self, tunnit):
-        uusi_kuljettu_matka = self.kuljettu_matka + tunnit * self.hetkellinen_nopeus
-        self.kuljettu_matka = uusi_kuljettu_matka
+    def kulje(self,tunnit):
+        self.kuljettu_matka += self.hetkellinen_nopeus * tunnit
 
 class Kilpailu:
-    def __init__(self, kilpaiun_nimi, kilpailun_pituus):
-        self.kilpailun_nimi = kilpaiun_nimi
+    def __init__(self, kilpailun_nimi, kilpailun_pituus):
+        self.kilpailun_nimi = kilpailun_nimi
         self.kilpailun_pituus = kilpailun_pituus
         self.osallistuvat_autot = self.auto_luonti()
 
@@ -31,14 +30,22 @@ class Kilpailu:
             auto = Auto(f"ABC-{i}", random.randint(100, 200))
             autolista.append(auto)
         return autolista
+
     def tunti_kuluu(self):
         for auto in kilpailu.osallistuvat_autot:
-            auto.kiihdytys(random.randint(-10,15))
-            auto.kulje(1)
+            auto.kiihdytys(random.randint(-10, 15))
+            auto.kulje()
 
     def tulosta_tilanne(self):
         for auto in kilpailu.osallistuvat_autot:
             print(f"Auton {auto.rekisteritunnus} nopeus on {auto.hetkellinen_nopeus} km/h."
                   f"Auton {auto.rekisteritunnus} kuljettu matka on nyt {auto.kuljettu_matka} kilometriä.")
+    def kilpailu_ohi(self):
+        for auto in kilpailu.osallistuvat_autot:
+            if auto.kuljettu_matka >= kilpailu.kilpailun_pituus:
+                return True
+            if auto.kuljettu_matka < kilpailu.kilpailun_pituus:
+                return False
 
-kilpailu = Kilpailu("Suuri rmuralli", 8000)
+kilpailu = Kilpailu("Suuri romuralli", 8000)
+print(f"{kilpailu.kilpailun_nimi}, {kilpailu.kilpailun_pituus} km.")

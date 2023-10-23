@@ -19,8 +19,7 @@ class Auto:
 
 
     def kulje(self,tunnit):
-        uusi_kuljettu_matka = self.kuljettu_matka + tunnit * self.hetkellinen_nopeus
-        self.kuljettu_matka = uusi_kuljettu_matka
+        self.kuljettu_matka += self.hetkellinen_nopeus * tunnit
 
 
 autot = []
