@@ -10,7 +10,7 @@ try:
             json_response = response.json()
             result = json_response
             print(f"{result['name']}:\n"
-                  f"Sää: {result['weather'][0]['main']}\n"
+                  f"Sää: {result['weather'][0]['description']}\n"
                   f"Lämpötila: {result['main']['temp']} °C")
 except requests.exceptions.RequestException as e:
       print ("Hakua ei voitu suorittaa.")
