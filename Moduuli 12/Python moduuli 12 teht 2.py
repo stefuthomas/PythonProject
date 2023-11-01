@@ -1,7 +1,7 @@
 import requests
 import json
 
-user_input = str(input("Anna haettava kaupunki: "))
+user_input = str(input("Kohde: "))
 request = (f"https://api.openweathermap.org/data/2.5/weather?q={user_input}&appid=be35bc47b601dbd0fb77cf603fdd5460&units=metric")
 
 try:
