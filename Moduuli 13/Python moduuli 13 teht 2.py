@@ -28,9 +28,8 @@ yhteys = mysql.connector.connect(
 app = Flask(__name__)
 @app.route("/kentta/<ICAO>")
 def kentta(ICAO):
-    icao = ICAO
-    airport = get_airport(icao)
-    municipality = get_municipality(icao)
+    airport = get_airport(ICAO)
+    municipality = get_municipality(ICAO)
 
     response = {
         "ICAO": ICAO,
