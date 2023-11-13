@@ -12,9 +12,9 @@ def hakeminen(koodi):
 yhteys = mysql.connector.connect(
          host='127.0.0.1',
          port= 3306,
-         database='flight_game',
+         database='ooptifly',
          user='root',
-         password='yAXDyg2T',
+         password='huono_salasana',
          autocommit=True
          )
 koodi = input('Anna ICAO-koodi: ')

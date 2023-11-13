@@ -17,8 +17,8 @@ yhteys = mysql.connector.connect(
          host='127.0.0.1',
          port= 3306,
          database='flight_game',
-         user='root',
-         password='yAXDyg2T',
+         user='optifly',
+         password='huono_salasana',
          autocommit=True
          )
 koodi = input('Anna Maa-koodi: ')
